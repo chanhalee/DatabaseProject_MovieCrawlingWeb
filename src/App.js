@@ -1,17 +1,18 @@
 import "./App.css";
-import React from "react";
 import Example3 from "./Example3";
-import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Profile from "./pages/Profile";
 
-class App extends Component {
-	render() {
-		return (
-			<div>
-				<Example3 />
-			</div>
-		);
-	}
-}
+const App = () => {
+	return (
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/about" element={<About />} />\
+			<Route path="/profiles/:mid" element={<Profile />} />
+		</Routes>
+	);
+};
 
 export default App;

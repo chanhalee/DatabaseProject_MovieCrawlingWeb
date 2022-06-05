@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Movie({ movie, onClickM }) {
 	return (
 		<div>
+			<Link to={"/profiles/" + movie.mid}>{movie.m_name}</Link>
 			<b
 				style={{
 					cursor: "pointer",

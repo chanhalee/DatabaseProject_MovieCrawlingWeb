@@ -30,31 +30,25 @@ class Example3 extends Component {
 		})
 			.then((res) => res.json())
 			.then((json) => {
-				console.log(json);
-				json.map(
-					(movie) =>
-						this.setState((prevState) => ({
-							movies: [
-								...prevState.movies,
-								{
-									mid: movie.mid,
-									m_name: movie.m_name,
-									m_rate: movie.m_rate,
-									m_netizen_rate: movie.m_netizen_rate,
-									m_netizen_count: movie.m_netizen_count,
-									m_journalist_score:
-										movie.m_journalist_score,
-									m_journalist_count:
-										movie.m_journalist_count,
-									m_playing_time: movie.m_playing_time,
-									m_opening_date: movie.m_opening_date,
-									m_image: movie.m_image,
-									m_heart: movie.m_heart,
-									m_synopsis: movie.m_synopsis,
-								},
-							],
-						})),
-					console.log(this.state.movies)
+				json.map((movie) =>
+					this.setState((prevState) => ({
+						movies: [
+							...prevState.movies,
+							{
+								mid: movie.mid,
+								m_name: movie.m_name,
+								m_rate: movie.m_rate,
+								m_netizen_rate: movie.m_netizen_rate,
+								m_netizen_count: movie.m_netizen_count,
+								m_journalist_score: movie.m_journalist_score,
+								m_journalist_count: movie.m_journalist_count,
+								m_playing_time: movie.m_playing_time,
+								m_opening_date: movie.m_opening_date,
+								m_image: movie.m_image,
+								m_synopsis: movie.m_synopsis,
+							},
+						],
+					}))
 				);
 			});
 	};
@@ -101,7 +95,6 @@ class Example3 extends Component {
 									m_playing_time: movie.m_playing_time,
 									m_opening_date: movie.m_opening_date,
 									m_image: movie.m_image,
-									m_heart: movie.m_heart,
 									m_synopsis: movie.m_synopsis,
 								},
 							],
@@ -139,7 +132,6 @@ class Example3 extends Component {
 			</div>
 		</li>
 	));
-	componentWillUpdate() {}
 	render() {
 		return (
 			<div>
@@ -155,6 +147,7 @@ class Example3 extends Component {
 					onKeyPress={this.onKeyPressSearch}
 				/>
 				<button onClick={this.onClickSearch}>검색</button>
+				<br></br>
 				<div>
 					<h1>{this.state.movies.length}</h1>
 					<br></br>
