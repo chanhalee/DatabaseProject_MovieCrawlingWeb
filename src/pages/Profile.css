@@ -1,0 +1,19 @@
+.basicinfo{
+	margin-top: 2em;
+	padding-left: 10px;
+	padding-right: 100px;
+	font-weight: 600;
+	font-size: large;
+}
+.poster{
+	align-content: center;
+	width:250px;
+}
+.synopsis{
+	font-size: large;
+}
+.movie{
+	margin-top: 8%;
+	margin-left: 10%;
+	margin-right: 10%;
+}

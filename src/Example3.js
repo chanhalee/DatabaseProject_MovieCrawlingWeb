@@ -1,9 +1,9 @@
+import { wait } from "@testing-library/user-event/dist/utils";
 import React, { Component, useRef } from "react";
-import "./MovieEntry.css";
-import MovieList from "./MovieList";
+import "./pages/MovieEntry.css";
+import MovieList from "./pages/MovieList";
 
 class Example3 extends Component {
-	refInput = { useRef };
 	state = {
 		movies: [],
 		movieEntry: "",
@@ -108,30 +108,30 @@ class Example3 extends Component {
 			this.onClickSearch(e);
 		}
 	};
-	mvList = this.state.movies.map((movie) => (
-		<li className={"movieEntry"} key={movie.id}>
-			<div className="movie_info">
-				<h1 className="movie_title">영화 제목 {movie.title}</h1>
-				<div className="movie_thumb">
-					<img src={movie.image} alt=""></img>
-				</div>
-				<div className="movie_star">
-					<div className="netizen_star">
-						네티즌 평점: {movie.netizen_rate}
-					</div>
-					참여 <em>{movie.netizen_count}</em>명
-					<div className="journalist_star">
-						기자/평론가 평점: {movie.journalist_rate}
-					</div>
-					참여 <em>{movie.journalist_count}</em>명
-				</div>
-				<div className="movie_scope">{movie.scope}</div>
-				<div className="movie_playtime">{movie.playing_time}</div>
-				<div className="movie_opening_date">{movie.opening_date}</div>
-				<div className="movie_director">{movie.director}</div>
-			</div>
-		</li>
-	));
+	// mvList = this.state.movies.map((movie) => (
+	// 	<li className={"movieEntry"} key={movie.id}>
+	// 		<div className="movie_info">
+	// 			<h1 className="movie_title">영화 제목 {movie.title}</h1>
+	// 			<div className="movie_thumb">
+	// 				<img src={movie.image} alt=""></img>
+	// 			</div>
+	// 			<div className="movie_star">
+	// 				<div className="netizen_star">
+	// 					네티즌 평점: {movie.netizen_rate}
+	// 				</div>
+	// 				참여 <em>{movie.netizen_count}</em>명
+	// 				<div className="journalist_star">
+	// 					기자/평론가 평점: {movie.journalist_rate}
+	// 				</div>
+	// 				참여 <em>{movie.journalist_count}</em>명
+	// 			</div>
+	// 			<div className="movie_scope">{movie.scope}</div>
+	// 			<div className="movie_playtime">{movie.playing_time}</div>
+	// 			<div className="movie_opening_date">{movie.opening_date}</div>
+	// 			<div className="movie_director">{movie.director}</div>
+	// 		</div>
+	// 	</li>
+	// ));
 	render() {
 		return (
 			<div>
@@ -151,11 +151,7 @@ class Example3 extends Component {
 				<div>
 					<h1>{this.state.movies.length}</h1>
 					<br></br>
-					<MovieList
-						movies={this.state.movies}
-						onClickM={this.onClickM}
-						ref={this.refInput}
-					/>
+					<MovieList movies={this.state.movies} />
 				</div>
 			</div>
 		);

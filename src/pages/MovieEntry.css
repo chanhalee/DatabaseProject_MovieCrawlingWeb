@@ -1,0 +1,89 @@
+.movieEntry{
+	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
+	padding: 1em;
+	border-bottom: 3px solid black;
+}
+.movieList{
+	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
+	width: 80%;
+	padding: 1em;
+	border-bottom: 3px solid black;
+}
+.mtitle{
+	font-size: larger;
+}
+.entryMovieImage{
+	width:200px
+}
+.tit{
+	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
+	font-size: large;
+}
+.movie_thumb {
+    float: left;
+	width: 10%;
+    margin-right: 19px;
+}
+.lst_detail_t1 {
+    float: left;
+    width: 99px;
+    margin-right: 19px;
+}
+.lst_dsc dd {
+    overflow: hidden;
+    margin: 2px 0 0 31px;
+    line-height: 18px;
+    font-size: 13px;
+    color: #333;
+}
+.info_txt1 dd {
+    overflow: hidden;
+    margin: 2px 0 0 31px;
+    line-height: 18px;
+    font-size: 13px;
+    color: #333;
+}
+dd {
+    display: block;
+    margin-inline-start: 40px;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+ul, ol, menu {
+    list-style: none;
+}
+.info_txt1 {
+    overflow: hidden;
+}
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.lst_detail_t1{
+    float: left;
+    width: 546px;
+    margin-top: -4px;
+    vertical-align: top;
+}
+div{
+	display:inline-block;
+}
+.thumb img {
+    float: left;
+    vertical-align: top;
+}
+
+.lst_dsc {
+    overflow: hidden;
+    float: right;
+    width: 546px;
+    margin-top: -4px;
+    vertical-align: top;
+}
