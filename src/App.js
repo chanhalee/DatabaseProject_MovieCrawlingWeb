@@ -19,7 +19,7 @@ const App = () => {
 			<Route path="/movies/:search/:page" element={<Movies />} />
 			<Route path="/profiles/:mid" element={<Profile />} />
 			<Route path="/actorprofiles/:aid" element={<ActorProfile />} />
-			<Route path="/genre/:gid" element={<Genre />} />
+			<Route path="/genre/:gid/:search/:page" element={<Genre />} />
 			<Route
 				path="/directorprofiles/:did"
 				element={<DirectorProfile />}
