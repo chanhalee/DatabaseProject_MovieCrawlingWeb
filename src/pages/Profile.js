@@ -4,6 +4,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import ActorProfileForm from "./ActorProfileForm";
 import DirectorProfile from "./DirectorProfile";
 import DirectorProfileForm from "./DirectorProfileForm";
+import Genre from "./Genre";
+import GenreForm from "./GenreForm";
 import "./Profile.css";
 
 const Profile = () => {
@@ -65,6 +67,11 @@ const Profile = () => {
 						<div>
 							관람 등급 {"\t"}: {"\t"}
 							{movies.m_rate}
+						</div>
+						<br></br>
+						<div>
+							장르 {"\t"}: {"\t"}
+							<GenreForm mid={mid}></GenreForm>
 						</div>
 						<br></br>
 						<div>

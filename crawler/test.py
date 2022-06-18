@@ -32,7 +32,8 @@ def open_db():
         host='localhost',
         port=3306,
         user='chanha',
-        password='lee', db='db_practice2')
+        password='lee',
+        db='movie_data')
 
     cur = conn.cursor(pymysql.cursors.DictCursor)
     return conn, cur
@@ -131,6 +132,7 @@ def crawl_movie_info(mid):
                         temp.insert(4, '-')
                         temp.insert(7, '-')
                         arr[1] = ''.join(temp)
+                print(mid)
     movie_info += arr
 
     # 기본 이미지
@@ -176,15 +178,17 @@ def crawl_actor_director_info_from_mid(mid):
             if ak_name.attrs['href'].find('code=') != -1:
                 aid = int(ak_name.attrs['href'].split('code=')[1])
                 actor_info[0] = aid
-                # 같은 배우가 다른 영화에 나온 경우(actor테이블에 이미 튜플 존재)
-                if is_aid_checked[aid]:
-                    movie_actor_info[1] = aid   # movie_actor 테이블에 저장할 값을 업데이트
-                    continue
-                else:
-                    is_aid_checked[aid] = True
-                    movie_actor_info[1] = aid
+                actor_info[1] = ak_name.text
+                movie_actor_info[1] = aid
+            #     # 같은 배우가 다른 영화에 나온 경우(actor테이블에 이미 튜플 존재)
+            #     if is_aid_checked[aid]:
+            #         movie_actor_info[1] = aid   # movie_actor 테이블에 저장할 값을 업데이트
+            #         continue
+            #     else:
+            #         is_aid_checked[aid] = True
+            #         movie_actor_info[1] = aid
 
-            actor_info[1] = ak_name.text
+            # actor_info[1] = ak_name.text
 
         ae_name = actor.select_one('div > em')
         actor_info[2] = ae_name.text if ae_name is not None else ''
@@ -219,10 +223,10 @@ def crawl_actor_director_info_from_mid(mid):
             if d_link.attrs['href'].find('code=') != -1:
                 did = int(d_link.attrs['href'].split('code=')[1])
                 dir_info[0] = did
-                if is_aid_checked[did]:
-                    movie_dir_info[1] = did
-                    continue
-                is_aid_checked[did] = True
+                # if is_aid_checked[did]:
+                #     movie_dir_info[1] = did
+                #     continue
+                # is_aid_checked[did] = True
                 movie_dir_info[1] = did
 
         dk_name = director.select_one('div > a')
@@ -265,7 +269,7 @@ def fault_handler(mid, e, conn, cur, fault_location):
         genre_data_buf.clear()
     elif fault_location == 7:
         movie_photo_buf.clear()
-    insert_into_table(mid)
+    # insert_into_table(mid)
 
 
 def fault_handler_main(mid, e, conn, cur):
@@ -317,15 +321,14 @@ def insert_actor(mid, conn, cur):
     insert ignore into actor (aid, ak_name, ae_name, a_image)
     values(%s, %s, %s, %s)
     """
-
-    try:
-        cur.executemany(insert_sql_actor, actor_data_buf)
-        conn.commit()
-        actor_data_buf.clear()
-
-    except Exception as e:
-        print(actor_data_buf)
-        fault_handler(mid, e, conn, cur, 2)
+    for a in actor_data_buf:
+        try:
+            b = [a]
+            cur.executemany(insert_sql_actor, b)
+            conn.commit()
+        except Exception as e:
+            print(actor_data_buf)
+            fault_handler(mid, e, conn, cur, 2)
 
 
 def insert_director(mid, conn, cur):
