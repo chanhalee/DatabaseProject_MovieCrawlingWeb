@@ -1,0 +1,28 @@
+.selectedGenreBtn{
+    background-color: rgb(255, 197, 127);
+    color: black;
+    border: 1px solid orange;
+    border-radius: 3px;
+    margin-right: 0.5em;
+}
+.unselectedGenreBtn{
+    background-color: gray;
+    color: antiquewhite;
+    border-radius: 3px;
+    margin-right: 0.5em;
+}
+
+.selectedOrderBtn{
+    background-color: rgb(255, 197, 127);
+    color: black;
+    border: 1px solid orange;
+    border-radius: 3px;
+    margin-right: 0.5em;
+}
+
+.unselectedOrderBtn{
+    background-color: gray;
+    color: antiquewhite;
+    border-radius: 3px;
+    margin-right: 0.5em;
+}

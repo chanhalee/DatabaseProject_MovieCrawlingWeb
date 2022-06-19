@@ -1,13 +1,8 @@
 .movieEntry{
 	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
 	padding: 1em;
-	border-bottom: 3px solid black;
-}
-.movieList{
-	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
-	width: 80%;
-	padding: 1em;
-	border-bottom: 3px solid black;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .mtitle{
 	font-size: larger;

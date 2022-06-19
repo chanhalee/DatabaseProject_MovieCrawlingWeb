@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import MovieEntry from "./MovieEntry";
+import MovieEntry from "./forms/entries/MovieEntry";
 import "./ActorProfile.css";
+import NavigationBar from "./fragments/NavigationBar";
 
 const ActorProfile = () => {
 	const params = useParams();
@@ -34,7 +35,7 @@ const ActorProfile = () => {
 							mid: movie.mid,
 							m_name: movie.m_name,
 							m_rate: movie.m_rate,
-							m_netizen_rate: movie.m_netizen_rate,
+							m_netizen_score: movie.m_netizen_score,
 							m_netizen_count: movie.m_netizen_count,
 							m_journalist_score: movie.m_journalist_score,
 							m_journalist_count: movie.m_journalist_count,
@@ -59,7 +60,7 @@ const ActorProfile = () => {
 	if (loading) return <div>Loading...</div>;
 	return (
 		<div className="actorProfile">
-			<Link to="/home">홈으로</Link>
+			<NavigationBar />
 			<button onClick={() => navigate(-1)}>이전 페이지</button>
 			<br></br>
 			<div className="actorInfo">

@@ -9,7 +9,7 @@ function GenreFormElement({ genre }) {
 			}}
 			className="genres"
 		>
-			<Link to={"/genre/" + genre.gid + "/all/1"}>
+			<Link to={"/genre/" + genre.gid + "/all/mid/desc/1"}>
 				<b>{parseGenre(genre.gid)}</b>
 			</Link>
 			&nbsp;

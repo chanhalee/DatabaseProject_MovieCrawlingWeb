@@ -17,3 +17,16 @@
 	margin-left: 10%;
 	margin-right: 10%;
 }
+.movieReview{
+    margin: 1em;
+    background-color: beige;
+}
+
+.movieReviewTitle{
+    font-weight: 700;
+}
+.movieSceneImg{
+    margin-top: 1em;
+    border-radius: 1%;
+    border: 2px solid black;
+}

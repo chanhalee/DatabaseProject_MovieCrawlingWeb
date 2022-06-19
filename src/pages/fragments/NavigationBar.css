@@ -1,0 +1,50 @@
+
+.navigationBar{
+    margin-bottom: 2em;
+    background-color: aquamarine;
+    width: 100%;
+    padding: 3em;
+}
+
+.nav_HomeBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+    border:1px solid black;
+}
+
+.nav_MovieBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+    border:1px solid black;
+}
+
+.nav_ActorBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+    border:1px solid black;
+}
+.nav_DirectorBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+    border:1px solid black;
+}
+.nav_GenreBtn{
+    margin-left: 1em;
+    margin-right: 1em;
+    text-decoration: none;
+    color: black;
+    padding: 2em;
+    border:1px solid black;
+}

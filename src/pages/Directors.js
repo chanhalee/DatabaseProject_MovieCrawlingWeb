@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
-import ActorList from "./ActorList";
-import ActorProfileForm from "./forms/ActorProfileForm";
+import DirectorList from "./DirectorList";
+import DirectorProfileForm from "./forms/DirectorProfileForm";
 import NavigationBar from "./fragments/NavigationBar";
 
-const Actors = () => {
+const Directors = () => {
 	const params = useParams();
 	const navigate = useNavigate();
 	const [searchQeury, setSearchQeury] = useState(
 		params.search === "all"
 			? ""
-			: " and ak_name like '%" + params.search + "%'"
+			: " and dk_name like '%" + params.search + "%'"
 	);
 	const [searchInput, setSearchInput] = useState("");
 	const page = parseInt(params.page);
 	const [loading, setLoading] = useState(true);
 	const [desc, setDesc] = useState(true);
-	const [actors, setactors] = useState([]);
+	const [directors, setdirectors] = useState([]);
 	const onChangeSearchInput = (e) => setSearchInput(e.target.value);
 	const onClickSearch = () => {
 		navigate(
-			"/actors/" +
+			"/directors/" +
 				(searchInput === "" ? "all" : searchInput) +
 				"/" +
 				params.order +
@@ -38,9 +38,9 @@ const Actors = () => {
 		setSearchQeury(
 			params.search === "all"
 				? " "
-				: " and ak_name like '%" + params.search + "%'"
+				: " and dk_name like '%" + params.search + "%'"
 		);
-		setactors([]);
+		setdirectors([]);
 		fetch("http://localhost:3001/data", {
 			method: "post", //통신방법
 			headers: {
@@ -49,7 +49,7 @@ const Actors = () => {
 			body: JSON.stringify({
 				all: false,
 				query:
-					"SELECT * FROM actor WHERE ak_name <> ''" +
+					"SELECT * FROM director WHERE dk_name <> ''" +
 					searchQeury +
 					" order by " +
 					params.order +
@@ -62,14 +62,14 @@ const Actors = () => {
 		})
 			.then((res) => res.json())
 			.then((json) => {
-				json.map((actor) =>
-					setactors((prevState) => [
+				json.map((director) =>
+					setdirectors((prevState) => [
 						...prevState,
 						{
-							aid: actor.aid,
-							ak_name: actor.ak_name,
-							ae_name: actor.ae_name,
-							a_image: actor.a_image,
+							did: director.did,
+							dk_name: director.dk_name,
+							de_name: director.de_name,
+							d_image: director.d_image,
 						},
 					])
 				);
@@ -80,20 +80,20 @@ const Actors = () => {
 	return (
 		<div>
 			<NavigationBar />
-			<h1>전체 배우 조회</h1>
+			<h1>전체 감독 조회</h1>
 			<Link
 				to={
-					"/actors/" +
+					"/directors/" +
 					params.search +
 					"/" +
-					"aid" +
+					"did" +
 					"/" +
 					(params.desc === "desc" ? " /1" : "desc/1")
 				}
 			>
 				<button className="pageBtn">
 					{"기본 " +
-						(params.order === "aid"
+						(params.order === "did"
 							? params.desc === "desc"
 								? " ↓"
 								: " ↑"
@@ -102,17 +102,17 @@ const Actors = () => {
 			</Link>
 			<Link
 				to={
-					"/actors/" +
+					"/directors/" +
 					params.search +
 					"/" +
-					"ak_name" +
+					"dk_name" +
 					"/" +
 					(params.desc === "desc" ? " /1" : "desc/1")
 				}
 			>
 				<button className="pageBtn">
 					{"이름 " +
-						(params.order === "ak_name"
+						(params.order === "dk_name"
 							? params.desc === "desc"
 								? " ↓"
 								: " ↑"
@@ -123,7 +123,7 @@ const Actors = () => {
 				<input
 					type="text"
 					name="message"
-					placeholder="배우 검색"
+					placeholder="감독 검색"
 					value={searchInput}
 					onChange={onChangeSearchInput}
 					onKeyPress={onKeyPress}
@@ -131,19 +131,20 @@ const Actors = () => {
 				<button onClick={onClickSearch}>검색</button>
 			</div>
 			<br></br>
-			<ActorList actors={actors} />
+			<DirectorList directors={directors} />
 			<br></br>
 			{page >= 2 ? (
 				<Link
 					to={
-						"/actors/" +
-						params.search +
-						"/" +
-						params.order +
-						"/" +
-						params.desc +
-						"/" +
-						(page - 1)
+						"/directors/" +
+							params.search +
+							"/" +
+							params.order +
+							"/" +
+							params.desc ===
+						"desc"
+							? " "
+							: "desc" + "/" + (page - 1)
 					}
 				>
 					<button>이전 페이지</button>
@@ -151,10 +152,10 @@ const Actors = () => {
 			) : (
 				"       "
 			)}
-			{actors.length >= 10 ? (
+			{directors.length >= 10 ? (
 				<Link
 					to={
-						"/actors/" +
+						"/directors/" +
 						params.search +
 						"/" +
 						params.order +
@@ -173,4 +174,4 @@ const Actors = () => {
 	);
 };
 
-export default Actors;
+export default Directors;

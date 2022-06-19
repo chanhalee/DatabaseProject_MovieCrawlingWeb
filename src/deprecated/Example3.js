@@ -1,7 +1,7 @@
 import { wait } from "@testing-library/user-event/dist/utils";
 import React, { Component, useRef } from "react";
-import "./pages/MovieEntry.css";
-import MovieList from "./pages/MovieList";
+import "./pages/forms/entries/MovieEntry.css";
+import MovieList from "../pages/MovieList";
 
 class Example3 extends Component {
 	state = {

@@ -17,8 +17,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
-./crawler/naver.py
-/crawler/naver.py
+./crawler/credential.py
+/crawler/credential.py
 
 ./crawler/chromedriver
 /crawler/chromedriver

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./DirectorProfileForm.css";
 
-function Director({ director }) {
+function Director({ director, noPic }) {
 	return (
 		<div
 			style={{
@@ -10,19 +11,31 @@ function Director({ director }) {
 			}}
 			className="directors"
 		>
-			<img className="directorimage" src={director.d_image} alt="d"></img>
-			<br></br>
-			<Link to={"/directorprofiles/" + director.did}>
-				<b>{director.dk_name}</b>
-			</Link>
-			<br></br>
-			&nbsp;
-			{/* <span>({director.role})</span> */}
+			{noPic === true ? (
+				<div className="directorForm">
+					<Link to={"/directorprofiles/" + director.did}>
+						<b>{director.dk_name}</b>
+					</Link>
+				</div>
+			) : (
+				<div className="directorForm">
+					<img
+						className="directorimage"
+						src={director.d_image}
+						alt="d"
+					></img>
+					<br></br>
+					<Link to={"/directorprofiles/" + director.did}>
+						<b>{director.dk_name}</b>
+					</Link>
+					<br></br>
+				</div>
+			)}
 		</div>
 	);
 }
 
-function DirectorProfileForm({ mid }) {
+function DirectorProfileForm({ mid, noPic }) {
 	const [loading, setLoading] = useState(true);
 	const [directors, setDirectors] = useState([]);
 	useEffect(() => {
@@ -59,10 +72,13 @@ function DirectorProfileForm({ mid }) {
 	if (loading) return <div>Loading...</div>;
 	return (
 		<div>
-			<div>감독:</div>
 			<div>
 				{directors.map((director) => (
-					<Director director={director} key={director.did} />
+					<Director
+						director={director}
+						noPic={noPic}
+						key={director.did}
+					/>
 				))}
 			</div>
 		</div>

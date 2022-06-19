@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GenreForm from "../GenreForm";
 import "./MovieEntry.css";
 
 function MovieE({ movie }) {
@@ -22,6 +23,7 @@ function MovieE({ movie }) {
 						{movie.role === "" ? "" : " |  " + movie.role + "역"}
 					</div>
 					<br></br>
+					<GenreForm mid={movie.mid} />
 				</div>
 			) : (
 				""

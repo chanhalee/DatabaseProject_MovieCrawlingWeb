@@ -1,0 +1,22 @@
+.movieInfo{
+    margin: 2em;
+	width: 80%;
+}
+.movieBasicInfo{
+    margin: 2em;
+
+}
+.movieList{
+	font-family: '나눔고딕',NanumGothic,'돋움',Dotum,Helvetica,AppleSDGothicNeo-Medium,AppleGothic,sans-serif;
+	width: 80%;
+    margin-left: 10%;
+	padding: 1em;
+	border-radius: 1%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border:2px solid orange;
+    background-color: antiquewhite;
+}
+.entryMovieImage{
+	width:250px
+}
